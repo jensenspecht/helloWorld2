@@ -1,0 +1,43 @@
+
+p {
+    font-size: 16px;
+    font-family: Arienl, sans-serif;
+}
+
+/* styles the text under a table, describing the tables contents*/
+p#under-table{
+    font-size: 12px;
+    font-style: italic;
+}
+
+h2 {
+    color: transparent;
+    font-weight: 600;
+    font-size: 3rem;
+    -webkit-text-stroke: 1px black;
+    text-shadow: -2px -2px black;
+}
+
+table, td, th {
+    border-style: solid;
+    border-width: 2px;
+    border-color: darkblue;
+    padding: 7px;
+}
+
+
+/* styles a list to pop out more on screen*/
+.special-list {
+    background-color: cadetblue;
+    border: 2px solid #1E90FF;
+    padding: 15px;
+    font-weight: bold;
+    color: darkblue;
+    width: 10%;
+}
+
+/* Image styling for the RHS logo*/
+img.logo {
+    width: 267px;
+    height: 72px;
+}
