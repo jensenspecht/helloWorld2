@@ -1,47 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link href = "/static/css/style.css" rel = "stylesheet">
-    <title>User Info Form</title>
-</head>
-<body>
+{% extends "base.html" %}
+    {% block title %}User Info Form{% endblock %}
 
-<h1>User Information Form</h1>
 
-{% if form_submitted %}
-    <h2>Thank you for submitting the form!</h2>
+{% block page_head %}User Information Form{% endblock %}
 
-    <p>First name: {{ request.form.get('first_name') }}</p>
+{% block page_content %}
+    {% if form_submitted %}
+        <h2>Thank you for submitting the form!</h2>
 
-{% else %}
-    <form method = "POST">
+            <p>First name: {{ request.form.get('first_name') }}</p>
+            <p>Last name: {{ request.form.get('last_name') }}</p>
+            <p>Email: {{ request.form.get('email') }}</p>
+            <p>Password: {{ request.form.get('password') }}</p>
 
-        <!-- first name form box -->
-        <div class="mb-3">
-        <label for="first_name" class="form-label">First name</label>
-        <input type="text" class="form-control" id="first_name">
-        </div>
+    {% else %}
+        <form method = "POST">
 
-        <!-- last name form box-->
-           <div class="mb-3">
-        <label for="last_name" class="form-label">Last name</label>
-        <input type="text" class="form-control" id="last_name">
-        </div>
+            <!-- first name form box -->
+            <div class="mb-3">
+            <label for="first_name" class="form-label">First name</label>
+            <input type="text" class="form-control" id="first_name" name = "first_name">
+            </div>
 
-        <!-- email form box-->
-        <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        </div>
-        <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
-        </div>
+            <!-- last name form box-->
+               <div class="mb-3">
+            <label for="last_name" class="form-label">Last name</label>
+            <input type="text" class="form-control" id="last_name" name = 'last_name'>
+            </div>
 
-        <!-- submit button-->
-        <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-{% endif %}
-</body>
-</html>
+            <!-- email form box-->
+            <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name = 'email'>
+            </div>
+
+            <!-- password form box -->
+            <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name = 'password'>
+            </div>
+
+            <!-- submit button-->
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+    {% endif %}
+{% endblock %}
