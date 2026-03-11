@@ -26,9 +26,6 @@ def favorite_course():  # put application's code here
 
     return render_template('favorite-course.html')
 
-@app.route('/contact')
-def contact():  # put application's code here
-    return render_template('contact.html')
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
@@ -36,5 +33,6 @@ def contact():
         return render_template('contact.html', form_submitted=True)
     else:
         return render_template('contact.html')
+
 if __name__ == '__main__':
     app.run()

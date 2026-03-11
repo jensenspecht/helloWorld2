@@ -3,35 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <link href = "/static/css/style.css" rel = "stylesheet">
-    <title>Title</title>
+    <title>User Info Form</title>
 </head>
 <body>
-<form>
 
-    <!-- first name form box -->
-    <div class="mb-3">
-    <label for="first_name" class="form-label">First name</label>
-    <input type="text" class="form-control" id="first_name">
-  </div>
+<h1>User Information Form</h1>
 
-    <!-- last name form box-->
-       <div class="mb-3">
-    <label for="last_name" class="form-label">Last name</label>
-    <input type="text" class="form-control" id="last_name">
-  </div>
+{% if form_submitted %}
+    <h2>Thank you for submitting the form!</h2>
 
-    <!-- email form box-->
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
+    <p>First name: {{ request.form.get('first_name') }}</p>
 
-    <!-- submit button-->
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+{% else %}
+    <form method = "POST">
+
+        <!-- first name form box -->
+        <div class="mb-3">
+        <label for="first_name" class="form-label">First name</label>
+        <input type="text" class="form-control" id="first_name">
+        </div>
+
+        <!-- last name form box-->
+           <div class="mb-3">
+        <label for="last_name" class="form-label">Last name</label>
+        <input type="text" class="form-control" id="last_name">
+        </div>
+
+        <!-- email form box-->
+        <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+
+        <!-- submit button-->
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+{% endif %}
 </body>
 </html>
